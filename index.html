@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+      <script src="https://unpkg.com/axios@0.16.1/dist/axios.min.js"></script>
+    </title>
+  </head>
+  <style>
+    .search-input {
+      width: 250px;
+    }
+  </style>
+  <body >
+    <div id='app'  v-cloak>
+      <div class="container">
+        <h3>Inventory</h3>
+        <div style="display: flex;">
+          <input type="text" v-on:keyup.Enter='searchTable' v-model="value" ref="input" placeholder="search..." class="form-control search-input">
+          <button class="btn btn-primary" v-bind:click="searchTable">Search</button>
+        </div>
+        <table class="table table-stripe table-hover">
+          <thead>
+            <th>Item Code</th>
+            <th>Produce</th>
+            <th>Package</th>
+            <th>Available Units</th>
+            <th>Category</th>
+            <th>Last Updated</th>
+            <th>Edit Available Quantity</th>
+          </thead>
+            <tbody>
+              <tr v-for="(item, index) in data">
+                <td>{{item.code}}</td>
+                <td>{{item.product}}</td>
+                <td>{{item.package}}</td>
+                <td>{{item.unit}}</td>
+                <td>{{item.category}}</td>
+                <td>{{item.time}}</td>
+                <td>{{item.quantity}}</td>
+              </tr>
+            </tbody>
+        </table>
+      </div> <!--Container-->
+    </div> 
+  <script src="script.js"></script>
+
+  </body>
+</html>
